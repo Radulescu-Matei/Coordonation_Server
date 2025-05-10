@@ -6,7 +6,7 @@ import requests
 import csv
 URL = "http://100.96.0.2:5000/api/upload"
 # Schimbat pentru testare
-NR_REQUESTS = 30
+NR_REQUESTS = 60
 
 paths = [os.path.join("generate_images/test_images", img) for img in os.listdir("generate_images/test_images")]
 
@@ -44,5 +44,5 @@ def run(nr_vehicles):
 
 if __name__ == "__main__":
     # Pt testare
-    nr_vehicles = 1
+    nr_vehicles = 3
     run(nr_vehicles)
