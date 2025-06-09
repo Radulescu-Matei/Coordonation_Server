@@ -28,11 +28,11 @@ if vehicle_avg_times:
     x1, y1 = zip(*vehicle_avg_times)
     plt.figure()
     plt.plot(x1, y1, marker='o')
-    plt.title("Average Response Time vs Number of Vehicles (30 requests)")
-    plt.xlabel("Number of Vehicles")
+    plt.title("Average Response Time vs Number of Images per second (30 requests)")
+    plt.xlabel("Number of Images per second")
     plt.ylabel("Average Response Time (s)")
     plt.grid(True)
-    plt.savefig(os.path.join(output_dir, "avg_response_vs_vehicles.png"))
+    plt.savefig(os.path.join(output_dir, "avg_response_vs_Images.png"))
     plt.close()
 else:
     print("⚠️ No valid files found for 30 requests plot.")
@@ -60,8 +60,7 @@ if requests_avg_times:
     plt.grid(True)
     plt.savefig(os.path.join(output_dir, "avg_response_vs_requests_3vehicles.png"))
     plt.close()
-else:
-    print("⚠️ No valid files found for 3 vehicles request plot.")
+
 
 # === Plot 3: Response time per vehicle (8 vehicles, 30 requests) ===
 file_8vehicles = "response_times_8vehicles_30requests"
@@ -77,8 +76,8 @@ if file_8vehicles in all_files:
     plt.grid(True)
     plt.savefig(os.path.join(output_dir, "response_per_vehicle_8vehicles.png"))
     plt.close()
-else:
-    print(f"⚠️ File {file_8vehicles} not found.")
+
+
 
 # === Plot 4: Response time per vehicle (3 vehicles, 90 requests) ===
 file_3v_90r = "response_times_3vehicles_90requests"
@@ -94,5 +93,4 @@ if file_3v_90r in all_files:
     plt.grid(True)
     plt.savefig(os.path.join(output_dir, "response_per_vehicle_3vehicles_90requests.png"))
     plt.close()
-else:
-    print(f"⚠️ File {file_3v_90r} not found.")
+

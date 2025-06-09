@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aruco-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aruco-api
+  template:
+    metadata:
+      labels:
+        app: aruco-api
+    spec:
+      containers:
+        - name: aruco-api
+          image: radulescumatei76/aruco-api:latest
+          imagePullPolicy: IfNotPresent 
+          command:
+            - gunicorn
+          args:
+            - --bind
+            - 0.0.0.0:5000
+            - --workers
+            - "1"
+            - --threads
+            - "4"
+            - app:app
+          ports:
+            - containerPort: 5000
+          env:
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
